@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Forschungstauchgänge: Planung und Wissensdatenbank</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f8ff;
+            margin: 0;
+            padding: 20px;
+            color: #333;
+        }
+        h1, h2 {
+            color: #005b8f;
+            text-align: center;
+        }
+        h2 {
+            margin-top: 40px;
+        }
+        .form-container {
+            background-color: #ffffff;
+            padding: 20px;
+            margin: 20px auto;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            width: 90%;
+            max-width: 800px;
+        }
+        label {
+            display: block;
+            margin: 10px 0 5px;
+            font-weight: bold;
+        }
+        input, textarea, select {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+        button {
+            background-color: #005b8f;
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            cursor: pointer;
+            border-radius: 4px;
+            width: 100%;
+        }
+        button:hover {
+            background-color: #003d66;
+        }
+        .section {
+            margin-bottom: 40px;
+        }
+        #results {
+            text-align: center;
+            font-size: 1.2em;
+            color: #333;
+            margin-top: 20px;
+        }
+    </style>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+</head>
+<body>
+
+    <h1>Forschungstauchgänge: Planung und Wissensdatenbank</h1>
+
+    <div class="form-container">
+        <form id="forschungstauchgangForm">
+            <!-- Überthema 1: Allgemeine Informationen -->
+            <div class="section">
+                <h2>1. Allgemeine Informationen</h2>
+                <label for="datum">Datum des Tauchgangs:</label>
+                <input type="date" id="datum" name="datum" required>
+
+                <label for="ort">Ort des Tauchgangs:</label>
+                <input type="text" id="ort" name="ort" placeholder="z.B. Helgoland" required>
+
+                <label for="beschreibung">Kurzbeschreibung des Tauchgangs:</label>
+                <textarea id="beschreibung" name="beschreibung" rows="3" placeholder="Ziele und Kontext des Tauchgangs" required></textarea>
+            </div>
+
+            <!-- Überthema 2: Umwelt- und Wetterbedingungen -->
+            <div class="section">
+                <h2>2. Umwelt- und Wetterbedingungen</h2>
+                <label for="windstaerke">Windstärke (Beaufort):</label>
+                <input type="number" id="windstaerke" name="windstaerke" placeholder="z.B. 4" min="0" required>
+
+                <label for="windrichtung">Windrichtung:</label>
+                <input type="text" id="windrichtung" name="windrichtung" placeholder="z.B. NW" required>
+
+                <label for="wellenhoehe">Wellenhöhe (Meter):</label>
+                <input type="number" id="wellenhoehe" name="wellenhoehe" step="0.1" placeholder="z.B. 1.5" required>
+
+                <label for="wellenrichtung">Wellenrichtung:</label>
+                <input type="text" id="wellenrichtung" name="wellenrichtung" placeholder="z.B. NNW" required>
+
+                <label for="stauwasser">Stauwasserzeiten (falls bekannt):</label>
+                <textarea id="stauwasser" name="stauwasser" rows="2" placeholder="z.B. 10:00 - 11:30" required></textarea>
+            </div>
+
+            <!-- Überthema 3: Tauchparameter -->
+            <div class="section">
+                <h2>3. Tauchparameter</h2>
+                <label for="tauchzeit">Geplante Tauchzeit (Minuten):</label>
+                <input type="number" id="tauchzeit" name="tauchzeit" min="1" placeholder="z.B. 60" required>
+
+                <label for="maxTiefe">Maximale Tauchtiefe (Meter):</label>
+                <input type="number" id="maxTiefe" name="maxTiefe" min="1" placeholder="z.B. 30" required>
+
+                <label for="luftverbrauch">Durchschnittlicher Luftverbrauch (Liter/Minute):</label>
+                <input type="number" id="luftverbrauch" name="luftverbrauch" min="1" placeholder="z.B. 15" required>
+
+                <label for="anreicherung">Gasmischung:</label>
+                <select id="anreicherung" name="anreicherung" required>
+                    <option value="Luft">Luft</option>
+                    <option value="Nitrox">Nitrox</option>
+                    <option value="Trimix">Trimix</option>
+                    <option value="Heliox">Heliox</option>
+                </select>
+            </div>
+
+            <!-- Überthema 4: Gebietsinformationen -->
+            <div class="section">
+                <h2>4. Gebietsinformationen</h2>
+                <label for="tiefe">Durchschnittliche Tiefe:</label>
+                <input type="number" id="tiefe" name="tiefe" placeholder="z.B. 15 Meter" required>
+
+                <label for="vegetation">Vorherrschende Vegetation:</label>
+                <textarea id="vegetation" name="vegetation" rows="3" placeholder="z.B. Seegraswiesen, Algen" required></textarea>
+
+                <label for="untergrund">Untergrund:</label>
+                <textarea id="untergrund" name="untergrund" rows="3" placeholder="z.B. Sand, Felsen, Schlick" required></textarea>
+
+                <label for="lebewesen">Häufige Lebewesen:</label>
+                <textarea id="lebewesen" name="lebewesen" rows="3" placeholder="z.B. Hummer, Seesterne, Anemonen" required></textarea>
+            </div>
+
+            <!-- Überthema 5: Wissenschaftliche Datenbank -->
+            <div class="section">
+                <h2>5. Wissenschaftliche Datenbank</h2>
+                <label for="publikationen">Verfügbare Publikationen zu dieser Region:</label>
+                <textarea id="publikationen" name="publikationen" rows="3" placeholder="Titel oder Links von wissenschaftlichen Arbeiten" required></textarea>
+
+                <label for="forschungsprojekte">Bisherige Forschungsprojekte:</label>
+                <textarea id="forschungsprojekte" name="forschungsprojekte" rows="3" placeholder="Kurze Beschreibung vergangener Projekte" required></textarea>
+
+                <label for="langzeitdaten">Langzeit-Klimadaten:</label>
+                <textarea id="langzeitdaten" name="langzeitdaten" rows="3" placeholder="Temperatur-, Strömungs- oder Vegetationsdaten" required></textarea>
+            </div>
+
+            <!-- Abschluss -->
+            <div class="section">
+                <h2>6. Abschluss</h2>
+                <button type="button" onclick="berechneLuft()">Luftverbrauch berechnen</button>
+                <div id="results"></div>
+                <button type="button" onclick="speicherePDF()">Daten als PDF speichern</button>
+            </div>
+        </form>
+    </div>
+
+    <script>
+        function berechneLuft() {
+            const tauchzeit = parseFloat(document.getElementById('tauchzeit').value);
+            const luftverbrauch = parseFloat(document.getElementById('luftverbrauch').value);
+            const maxTiefe = parseFloat(document.getElementById('maxTiefe').value);
+
+            if (isNaN(tauchzeit) || isNaN(luftverbrauch) || isNaN(maxTiefe)) {
+                alert("Bitte alle Werte korrekt eingeben.");
+                return;
+            }
+
+            const luftGesamt = tauchzeit * luftverbrauch * (maxTiefe / 10 + 1);
+            document.getElementById('results').textContent = `Gesamtluftverbrauch: ${luftGesamt.toFixed(2)} Liter`;
+        }
+
+        function speicherePDF() {
+            const { jsPDF } = window.jspdf;
+            const doc = new jsPDF();
+
+            const datum = document.getElementById('datum').value;
+            const ort = document.getElementById('ort').value;
+            const beschreibung = document.getElementById('beschreibung').value;
+            const windstaerke = document.getElementById('windstaerke').value;
+            const windrichtung = document.getElementById('windrichtung').value;
+            const wellenhoehe = document.getElementById('wellenhoehe').value;
+            const stauwasser = document.getElementById('stauwasser').value;
+
+            doc.text(`Forschungstauchgang Planung:
+- Datum: ${datum}
+- Ort: ${ort}
+- Windstärke: ${windstaerke}
+- Stauwasser: ${stauwasser}`, 10, 10);
+            doc.save(`Forschungstauchgang_${datum}.pdf`);
+        }
+    </script>
+
+</body>
+</html>
