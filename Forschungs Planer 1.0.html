@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<!-- saved from url=(0045)file:///C:/Users/leona/Downloads/new%204.html -->
+<html lang="de"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Forschungs Planer 1.0</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f8ff;
+            margin: 0;
+            padding: 20px;
+            color: #333;
+        }
+        h1, h2 {
+            color: #005b8f;
+            text-align: center;
+        }
+        h2 {
+            margin-top: 40px;
+        }
+        .form-container {
+            background-color: #ffffff;
+            padding: 20px;
+            margin: 20px auto;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            width: 90%;
+            max-width: 800px;
+        }
+        label {
+            display: block;
+            margin: 10px 0 5px;
+            font-weight: bold;
+        }
+        input {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+        button {
+            background-color: #005b8f;
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            cursor: pointer;
+            border-radius: 4px;
+            width: 100%;
+        }
+        button:hover {
+            background-color: #003d66;
+        }
+        .section {
+            margin-bottom: 40px;
+        }
+        #map {
+            width: 100%;
+            height: 400px;
+            margin-bottom: 20px;
+            border-radius: 8px;
+        }
+        #marine-data-result {
+            margin-top: 20px;
+            padding: 15px;
+            background-color: #e0f7fa;
+            border-radius: 5px;
+        }
+    </style>
+    <script src="./Forschungs Planer 1.0_files/leaflet.js.Download"></script><style type="text/css" id="operaUserStyle"></style>
+    <link rel="stylesheet" href="./Forschungs Planer 1.0_files/leaflet.css">
+</head>
+<body class="">
+
+    <h1>Forschungstauchgänge: Planung</h1>
+
+    <div class="form-container">
+        <form id="tauchgangForm">
+            <!-- Ort des Tauchgangs (Map) -->
+            <div class="section">
+                <h2>1. Ort des Tauchgangs</h2>
+                <div id="map" class="leaflet-container leaflet-touch leaflet-retina leaflet-fade-anim leaflet-grab leaflet-touch-drag leaflet-touch-zoom" tabindex="0" style="position: relative;"><div class="leaflet-pane leaflet-map-pane" style="transform: translate3d(501px, 189px, 0px);"><div class="leaflet-pane leaflet-tile-pane"><div class="leaflet-layer " style="z-index: 1; opacity: 1;"><div class="leaflet-tile-container leaflet-zoom-animated" style="z-index: 17; transform: translate3d(552px, -189px, 0px) scale(4);"></div><div class="leaflet-tile-container leaflet-zoom-animated" style="z-index: 18; transform: translate3d(170px, -67px, 0px) scale(2);"></div><div class="leaflet-tile-container leaflet-zoom-animated" style="z-index: 19; transform: translate3d(40px, -10px, 0px) scale(1);"><img alt="" src="./Forschungs Planer 1.0_files/20(2).png" class="leaflet-tile leaflet-tile-loaded" style="width: 256px; height: 256px; transform: translate3d(-248px, -215px, 0px); opacity: 1;"><img alt="" src="./Forschungs Planer 1.0_files/19(2).png" class="leaflet-tile leaflet-tile-loaded" style="width: 256px; height: 256px; transform: translate3d(-248px, -471px, 0px); opacity: 1;"><img alt="" src="./Forschungs Planer 1.0_files/20(4).png" class="leaflet-tile leaflet-tile-loaded" style="width: 256px; height: 256px; transform: translate3d(-504px, -215px, 0px); opacity: 1;"><img alt="" src="./Forschungs Planer 1.0_files/20.png" class="leaflet-tile leaflet-tile-loaded" style="width: 256px; height: 256px; transform: translate3d(8px, -215px, 0px); opacity: 1;"><img alt="" src="./Forschungs Planer 1.0_files/21(2).png" class="leaflet-tile leaflet-tile-loaded" style="width: 256px; height: 256px; transform: translate3d(-248px, 41px, 0px); opacity: 1;"><img alt="" src="./Forschungs Planer 1.0_files/19(4).png" class="leaflet-tile leaflet-tile-loaded" style="width: 256px; height: 256px; transform: translate3d(-504px, -471px, 0px); opacity: 1;"><img alt="" src="./Forschungs Planer 1.0_files/19.png" class="leaflet-tile leaflet-tile-loaded" style="width: 256px; height: 256px; transform: translate3d(8px, -471px, 0px); opacity: 1;"><img alt="" src="./Forschungs Planer 1.0_files/21(4).png" class="leaflet-tile leaflet-tile-loaded" style="width: 256px; height: 256px; transform: translate3d(-504px, 41px, 0px); opacity: 1;"><img alt="" src="./Forschungs Planer 1.0_files/21.png" class="leaflet-tile leaflet-tile-loaded" style="width: 256px; height: 256px; transform: translate3d(8px, 41px, 0px); opacity: 1;"><img alt="" src="https://c.tile.openstreetmap.org/6/30/20.png" class="leaflet-tile leaflet-tile-loaded" style="width: 256px; height: 256px; transform: translate3d(-760px, -215px, 0px); opacity: 1;"><img alt="" src="./Forschungs Planer 1.0_files/20(1).png" class="leaflet-tile leaflet-tile-loaded" style="width: 256px; height: 256px; transform: translate3d(264px, -215px, 0px); opacity: 1;"><img alt="" src="https://b.tile.openstreetmap.org/6/30/19.png" class="leaflet-tile leaflet-tile-loaded" style="width: 256px; height: 256px; transform: translate3d(-760px, -471px, 0px); opacity: 1;"><img alt="" src="./Forschungs Planer 1.0_files/19(1).png" class="leaflet-tile leaflet-tile-loaded" style="width: 256px; height: 256px; transform: translate3d(264px, -471px, 0px); opacity: 1;"><img alt="" src="https://a.tile.openstreetmap.org/6/30/21.png" class="leaflet-tile leaflet-tile-loaded" style="width: 256px; height: 256px; transform: translate3d(-760px, 41px, 0px); opacity: 1;"><img alt="" src="./Forschungs Planer 1.0_files/21(1).png" class="leaflet-tile leaflet-tile-loaded" style="width: 256px; height: 256px; transform: translate3d(264px, 41px, 0px); opacity: 1;"></div></div></div><div class="leaflet-pane leaflet-overlay-pane"></div><div class="leaflet-pane leaflet-shadow-pane"><img src="./Forschungs Planer 1.0_files/marker-shadow.png" class="leaflet-marker-shadow leaflet-zoom-animated" alt="" style="margin-left: -12px; margin-top: -41px; width: 41px; height: 41px; transform: translate3d(-50px, -26px, 0px);"></div><div class="leaflet-pane leaflet-marker-pane"><img src="./Forschungs Planer 1.0_files/marker-icon-2x.png" class="leaflet-marker-icon leaflet-zoom-animated leaflet-interactive" alt="Marker" tabindex="0" role="button" style="margin-left: -12px; margin-top: -41px; width: 25px; height: 41px; transform: translate3d(-50px, -26px, 0px); z-index: -26;"></div><div class="leaflet-pane leaflet-tooltip-pane"></div><div class="leaflet-pane leaflet-popup-pane"></div><div class="leaflet-proxy leaflet-zoom-animated" style="transform: translate3d(8299px, 5356px, 0px) scale(32);"></div></div><div class="leaflet-control-container"><div class="leaflet-top leaflet-left"><div class="leaflet-control-zoom leaflet-bar leaflet-control"><a class="leaflet-control-zoom-in" href="file:///C:/Users/leona/Downloads/new%204.html#" title="Zoom in" role="button" aria-label="Zoom in" aria-disabled="false"><span aria-hidden="true">+</span></a><a class="leaflet-control-zoom-out" href="file:///C:/Users/leona/Downloads/new%204.html#" title="Zoom out" role="button" aria-label="Zoom out" aria-disabled="false"><span aria-hidden="true">−</span></a></div></div><div class="leaflet-top leaflet-right"></div><div class="leaflet-bottom leaflet-left"></div><div class="leaflet-bottom leaflet-right"><div class="leaflet-control-attribution leaflet-control"><a href="https://leafletjs.com/" title="A JavaScript library for interactive maps"><svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="12" height="8" viewBox="0 0 12 8" class="leaflet-attribution-flag"><path fill="#4C7BE1" d="M0 0h12v4H0z"></path><path fill="#FFD500" d="M0 4h12v3H0z"></path><path fill="#E0BC00" d="M0 7h12v1H0z"></path></svg> Leaflet</a></div></div></div></div>
+                <input type="hidden" id="latitude" name="latitude" value="53.24494751843478">
+                <input type="hidden" id="longitude" name="longitude" value="3.4790037944912915">
+            </div>
+
+            <!-- Wetter -->
+            <div class="section">
+                <h2>2. Wetter berechnen</h2>
+                <button type="button" onclick="berechneWetter()">Wetter berechnen</button>
+                <div id="weather-result">
+                    <h3>Wetter am gewählten Ort:</h3>
+                    <p><strong>Temperatur:</strong> 9℃</p>
+                    <p><strong>Wetter:</strong> Bedeckt</p>
+                    <p><strong>Windgeschwindigkeit:</strong> 15.43 m/s</p>
+                    <p><strong>Windrichtung:</strong> SW (230°)</p>
+                </div>
+            </div>
+
+            <!-- Wasserlebewesen -->
+            <div class="section">
+                <h2>3. Wasserlebewesen anzeigen</h2>
+                <button type="button" onclick="berechneWasserlebewesen()">Wasserlebewesen anzeigen</button>
+                <div id="marine-life-result"></div>
+            </div>
+
+            <!-- Strömung und Wellenhöhen -->
+            <div class="section">
+                <h2>4. Strömung und Wellenhöhen berechnen</h2>
+                <button type="button" onclick="berechneStrömungWellen()">Strömung und Wellenhöhen berechnen</button>
+                <div id="marine-data-result">
+                    <h3>Strömung und Wellenhöhen:</h3>
+                    <p><strong>Maximale Wellenhöhe:</strong> 4.06 m</p>
+                    <p><strong>Stündliche Wellenhöhen (Beispiele):</strong> 2.1 m, 2.2 m, 2.2 m, 2.12 m, 2.08 m</p>
+                </div>
+            </div>
+
+            <!-- Umgebung -->
+            <div class="section">
+                <h2>5. Umgebung berechnen</h2>
+                <button type="button" onclick="berechneUmgebung()">Umgebungsdaten berechnen</button>
+                <div id="environment-result"></div>
+            </div>
+
+            <!-- Luftverbrauch -->
+            <div class="section">
+                <h2>6. Luftverbrauch berechnen</h2>
+                <label for="tauchgang-tiefe">Tauchtiefe (m):</label>
+                <input type="number" id="tauchgang-tiefe" name="tauchgang-tiefe" required="">
+                
+                <label for="tauchgang-dauer">Dauer des Tauchgangs (Minuten):</label>
+                <input type="number" id="tauchgang-dauer" name="tauchgang-dauer" required="">
+
+                <label for="luftverbrauch-pro-minute">Luftverbrauch pro Minute (l/min):</label>
+                <input type="number" id="luftverbrauch-pro-minute" name="luftverbrauch-pro-minute" required="">
+
+                <button type="button" onclick="berechneLuftverbrauch()">Luftverbrauch berechnen</button>
+                <div id="luftverbrauch-result">
+                <h3>Berechneter Luftverbrauch:</h3>
+                <p><strong>Luftverbrauch insgesamt:</strong> 78 l</p>
+            </div>
+            </div>
+
+            <!-- Abschluss -->
+            <div class="section">
+                <h2>7. Abschluss</h2>
+                <button type="button" onclick="speicherePDF()">Daten als PDF speichern</button>
+            </div>
+        </form>
+    </div>
+
+    <script>
+        const apiKey = '4db9283324a61d252299927649bb85a6'; // OpenWeatherMap API-Schlüssel
+        let map, marker;
+
+        function initializeMap() {
+            map = L.map('map').setView([51.1657, 10.4515], 6); // Zentrum von Deutschland
+
+            L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+                maxZoom: 19
+            }).addTo(map);
+
+            map.on('click', function(e) {
+                const { lat, lng } = e.latlng;
+
+                if (marker) {
+                    map.removeLayer(marker);
+                }
+
+                marker = L.marker([lat, lng]).addTo(map);
+                document.getElementById('latitude').value = lat;
+                document.getElementById('longitude').value = lng;
+            });
+        }
+
+        async function berechneWetter() {
+            const lat = document.getElementById('latitude').value;
+            const lon = document.getElementById('longitude').value;
+
+            if (!lat || !lon) {
+                alert('Bitte wählen Sie einen Ort auf der Karte aus.');
+                return;
+            }
+
+            // Hilfsfunktion zur Umwandlung von Grad in Himmelsrichtungen
+            function gradZuRichtung(degrees) {
+                const richtungen = ['N', 'NNO', 'NO', 'ONO', 'O', 'OSO', 'SO', 'SSO', 'S', 'SSW', 'SW', 'WSW', 'W', 'WNW', 'NW', 'NNW'];
+                const index = Math.round(degrees / 22.5) % 16;
+                return richtungen[index];
+            }
+
+            try {
+                const weatherResponse = await fetch(`https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${apiKey}&units=metric&lang=de`);
+                if (!weatherResponse.ok) {
+                    throw new Error('Fehler beim Abrufen der Wetterdaten.');
+                }
+
+                const weatherData = await weatherResponse.json();
+                const windrichtung = gradZuRichtung(weatherData.wind.deg); // Umwandlung der Windrichtung
+
+                const weatherResult = document.getElementById('weather-result');
+                weatherResult.innerHTML = `
+                    <h3>Wetter am gewählten Ort:</h3>
+                    <p><strong>Temperatur:</strong> ${weatherData.main.temp}&#8451;</p>
+                    <p><strong>Wetter:</strong> ${weatherData.weather[0].description}</p>
+                    <p><strong>Windgeschwindigkeit:</strong> ${weatherData.wind.speed} m/s</p>
+                    <p><strong>Windrichtung:</strong> ${windrichtung} (${weatherData.wind.deg}°)</p>
+                `;
+            } catch (error) {
+                alert(`Fehler: ${error.message}`);
+            }
+        }
+
+        async function berechneStrömungWellen() {
+            const lat = document.getElementById('latitude').value;
+            const lon = document.getElementById('longitude').value;
+
+            if (!lat || !lon) {
+                alert('Bitte wählen Sie einen Ort auf der Karte aus.');
+                return;
+            }
+
+            try {
+                const response = await fetch(`https://marine-api.open-meteo.com/v1/marine?latitude=${lat}&longitude=${lon}&hourly=wave_height&daily=wave_height_max`);
+                if (!response.ok) throw new Error('Fehler beim Abrufen der Strömungs- und Wellenhöhen-Daten.');
+
+                const data = await response.json();
+
+                const maxWaveHeight = data.daily?.wave_height_max?.[0] || 'Nicht verfügbar';
+                const hourlyWaveHeights = data.hourly?.wave_height?.slice(0, 5) || [];
+
+                const waveHeightsString = hourlyWaveHeights.length
+                    ? hourlyWaveHeights.map(height => `${height} m`).join(', ')
+                    : 'Keine Daten verfügbar';
+
+                document.getElementById('marine-data-result').innerHTML = `
+                    <h3>Strömung und Wellenhöhen:</h3>
+                    <p><strong>Maximale Wellenhöhe:</strong> ${maxWaveHeight} m</p>
+                    <p><strong>Stündliche Wellenhöhen (Beispiele):</strong> ${waveHeightsString}</p>
+                `;
+            } catch (error) {
+                alert(`Fehler: ${error.message}`);
+            }
+        }
+
+        async function berechneWasserlebewesen() {
+            const lat = document.getElementById('latitude').value;
+            const lon = document.getElementById('longitude').value;
+
+            if (!lat || !lon) {
+                alert('Bitte wählen Sie einen Ort auf der Karte aus.');
+                return;
+            }
+
+            try {
+                const marineLifeResponse = await fetch(`https://97666bdedfa271612ff3db8a48a650df/marine-life?lat=${lat}&lon=${lon}&apikey=ebc1dae2ba4b4594a4fe9ee96067663e`);
+                if (!marineLifeResponse.ok) {
+                    throw new Error('Fehler beim Abrufen der Wasserlebewesen-Daten.');
+                }
+
+                const marineLifeData = await marineLifeResponse.json();
+                const marineLifeResult = document.getElementById('marine-life-result');
+                marineLifeResult.innerHTML = marineLifeData.length
+                    ? marineLifeData.map(life => `<p>${life.name}: ${life.description}</p>`).join('')
+                    : '<p>Keine Wasserlebewesen vorhanden.</p>';
+            } catch (error) {
+                alert(`Fehler: ${error.message}`);
+            }
+        }
+
+        async function berechneUmgebung() {
+            const lat = document.getElementById('latitude').value;
+            const lon = document.getElementById('longitude').value;
+
+            if (!lat || !lon) {
+                alert('Bitte wählen Sie einen Ort auf der Karte aus.');
+                return;
+            }
+
+            try {
+                const environmentResponse = await fetch(`https://api.example-marine.com/environment?lat=${lat}&lon=${lon}&apikey=your-marine-api-key`);
+                if (!environmentResponse.ok) {
+                    throw new Error('Fehler beim Abrufen der Umgebungsdaten.');
+                }
+
+                const environmentData = await environmentResponse.json();
+                const environmentResult = document.getElementById('environment-result');
+                environmentResult.innerHTML = `
+                    <h3>Umgebungsdaten:</h3>
+                    <p><strong>Wassertiefe:</strong> ${environmentData.depth} m</p>
+                    <p><strong>Wassertemperatur:</strong> ${environmentData.temperature}&#8451;</p>
+                    <p><strong>Sichtweite:</strong> ${environmentData.visibility} m</p>
+                `;
+            } catch (error) {
+                alert(`Fehler: ${error.message}`);
+            }
+        }
+
+        function speicherePDF() {
+            const { jsPDF } = window.jspdf;
+            const doc = new jsPDF();
+
+            const weatherContent = document.getElementById('weather-result').textContent || '';
+            const marineLifeContent = document.getElementById('marine-life-result').textContent || '';
+            const environmentContent = document.getElementById('environment-result').textContent || '';
+            const marineDataContent = document.getElementById('marine-data-result').textContent || '';
+
+            doc.text('Forschungstauchgang Planung', 10, 10);
+            doc.text('Wetter:', 10, 20);
+            doc.text(weatherContent, 10, 30);
+            doc.text('Wasserlebewesen:', 10, 50);
+            doc.text(marineLifeContent, 10, 60);
+            doc.text('Umgebungsdaten:', 10, 80);
+            doc.text(environmentContent, 10, 90);
+            doc.text('Strömung und Wellenhöhen:', 10, 110);
+            doc.text(marineDataContent, 10, 120);
+
+            doc.save('Tauchgang_Planung.pdf');
+        }
+
+        function berechneLuftverbrauch() {
+            const tauchgangTiefe = parseFloat(document.getElementById('tauchgang-tiefe').value);
+            const tauchgangDauer = parseFloat(document.getElementById('tauchgang-dauer').value);
+            const luftverbrauchProMinute = parseFloat(document.getElementById('luftverbrauch-pro-minute').value);
+
+            if (isNaN(tauchgangTiefe) || isNaN(tauchgangDauer) || isNaN(luftverbrauchProMinute)) {
+                alert('Bitte füllen Sie alle Felder korrekt aus.');
+                return;
+            }
+
+            const luftverbrauchGesamt = luftverbrauchProMinute * tauchgangDauer;
+
+            document.getElementById('luftverbrauch-result').innerHTML = `
+                <h3>Berechneter Luftverbrauch:</h3>
+                <p><strong>Luftverbrauch insgesamt:</strong> ${luftverbrauchGesamt} l</p>
+            `;
+        }
+
+        window.onload = initializeMap;
+    </script>
+
+
+
+</body></html>
